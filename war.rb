@@ -82,14 +82,38 @@ def war_time! # Instance variables for days
         puts "Player 2 plays three cards face down, and plays #{@deck_2[@i]}!"
         @x = true
       end
-    else # If one of the decks cannot play a card in the war, I end the game.
-      if @deck_1.count <= @i
-        @deck_1.clear
-        @x = false
-      elsif @deck_2.count <= @i
-        @deck_2.clear
-        @x = false
-      end
+    else
+      end_war
+    end
+  end
+end
+
+def end_war
+  if @deck_1.count <= @i
+    if @score[@deck_1.last] > @score[@deck_2[@i]]
+      set1 = @deck_1.shift(@deck_1.count)
+      set2 = @deck_2.shift(@i)
+      @deck_1 << set1
+      @deck_1 << set2
+      @deck_1.flatten!
+      puts "Player 1 wins and takes all the cards!"
+      @x = false
+    else # Ends the game...in a rare case that THIS is a tie....end it anyway.
+      @deck_1.clear
+      @x = false
+    end
+  elsif @deck_2.count <= @i
+    if @score[@deck_2.last] > @score[@deck_1[@i]]
+      set2 = @deck_2.shift(@deck_2.count)
+      set1 = @deck_1.shift(@i)
+      @deck_2 << set1
+      @deck_2 << set2
+      @deck_2.flatten!
+      puts "Player 2 wins and takes all the cards!"
+      @x = false
+    else # Ends the game...in a rare case that THIS is a tie....end it anyway.
+      @deck_2.clear
+      @x = false
     end
   end
 end
@@ -109,5 +133,4 @@ def run
 end
 
 # Run the game! Optional sleep timers included if you want to watch each turn as it goes! FUN!
-
 run
