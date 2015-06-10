@@ -95,7 +95,7 @@ def war_time! # Instance variables for days
 end
 
 def run
-  puts "Hello #{@name1} and #{@name2} -- welcome to WAR! May the strongest knight win!"
+  puts "Hello players -- welcome to WAR! May the strongest knight win!"
   deal_cards
   loop do
     break if @deck_1.empty? || @deck_2.empty?
