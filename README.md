@@ -17,4 +17,6 @@ Challenges Faced:
     
 Feel free to fork and submit pull requests for any code you want to improve!
 
-I ran this simulation 500 times for fun and the average amount of turns per game was approx 230 turns.
+I wrote a blog post about my experience. Read it to learn more!
+
+https://medium.com/@TitanLax3/building-war-8f7ad8bea0d
